@@ -1,6 +1,7 @@
-package dozono.lonelyworld;
+package dozono.lonelyworld.Entity;
 
 import com.google.common.collect.ImmutableList;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.nbt.ListNBT;
@@ -15,21 +16,19 @@ import net.minecraftforge.registries.ForgeRegistries;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class NPCStats implements INBTSerializable<CompoundNBT> {
+public class FriendEntityStatus implements INBTSerializable<CompoundNBT> {
     private List<Item> favouriteItems;
+    //0-100
     public int mood;
 
     public int combatSkill;
     public int mineSkill;
     public int farmSkill;
     public int cutTreeSkill;
+    public int stamina = 100;
 
-    public NPCStats(List<Item> favouriteItems) {
+    public FriendEntityStatus(List<Item> favouriteItems) {
         this.favouriteItems = favouriteItems;
-    }
-
-    public NPCStats() {
-        this.favouriteItems = ImmutableList.of();
     }
 
     public List<Item> getFavouriteItems() {
